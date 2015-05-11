@@ -1,0 +1,16 @@
+<%= form_for @user do |f| %>
+
+	<h3>Set up your new account here.</h3>
+
+	<br><%= f.label :username %>
+	<br><%= f.text_field :username %>
+	
+	<br><%= f.label :password %>
+	<br><%= f.password_field :password %>
+
+	<br><%= f.label :password_confirmation %>
+	<br><%= f.password_field :password_confirmation %>
+	
+	<h3>Click 'create user' to authorize Four Square to use my app</h3>
+	<%= f.submit %>
+<% end %>
