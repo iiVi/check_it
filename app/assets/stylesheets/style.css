@@ -1,0 +1,64 @@
+body {
+	width: 100%;
+	height: auto;
+/*	position: absolute;*/
+	top: 0;
+	left: 0;
+	text-align: center;
+	font-family: Verdana;
+	margin: 0;
+	overflow: scroll;
+}
+
+#topbar a {
+	text-decoration: none;
+}
+
+#topbar {
+	text-decoration: none;
+	display: block;
+	width: 100%;
+	height: 75px;
+	background-color: DodgerBlue;
+	color: white;
+	padding: 15px;
+}
+#topbar h1 {
+	margin-top: 0px;
+	padding-top: 10px;
+}
+#sub-topbar{
+	display: block;
+	width: 100%;
+	height: auto;
+	margin-top: -22px;
+	padding: 1px;
+	background-color: LightSkyBlue;
+	color: white;
+}
+
+#bottombar {
+  	position:fixed;
+  	bottom:0;
+  	height:45px;
+  	width: 100%;
+	text-align: left;
+	background-color: DodgerBlue;
+	color: white;
+	padding-bottom: 5px;
+	padding-left: 3px;
+}
+#results-container {
+	overflow: scroll;
+}
+.user_list_item {
+	border-style: ridge;
+	border-width: 5px;
+	border-bottom-color: LightSkyBlue;
+	border-top-color: LightSkyBlue;
+	border-left-color: DodgerBlue;
+	border-right-color: DodgerBlue; 
+	width: 50%;
+	margin-bottom: 15px;
+	margin-left: 25%;
+}

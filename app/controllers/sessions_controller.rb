@@ -7,10 +7,12 @@ class SessionsController < ApplicationController
 		username = params[:username]
 		password = params[:password]
 		user = User.find_by(username: username)
+		redirect_link = 'http://localhost:3000/users/' + user.id.to_s
 
 		if user && user.authenticate(password)
 			session[:current_user] = user.id
-			redirect_to root_path
+			binding.pry
+			redirect_to redirect_link
 		else
 			render :new
 		end

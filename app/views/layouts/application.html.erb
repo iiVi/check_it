@@ -7,22 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<h1>Check It Out Brough</h1>
-
-	<% if current_user %>
-		<p>
-			Welcome, <%= current_user.username %> | 
-			<%= link_to 'Log Out', sessions_path, method: :delete %> </p>
-		</p>
-	<% else %>
-		<p>
-			<%= link_to 'Sign Up Today', new_user_path %> ||
-			<%= link_to 'Log In Now', sessions_new_path %>
-		</p>
-	<% end %>
-
-
-<%= yield %>
-
+	<div id="topbar">
+		<a href="http://localhost:3000" style="color:white;">
+			<h1>Check It Out Brough</h1>
+		</a>
+	</div>
+	<div id="sub-topbar">
+		<% if current_user %>
+			<p>
+				Welcome, <%= current_user.username %> | 
+				<%= link_to 'Log Out', sessions_path, method: :delete %> </p>
+			</p>
+		<% else %>
+			<p>
+				<%= link_to 'Sign Up Today', new_user_path %> ||
+				<%= link_to 'Log In Now', sessions_new_path %>
+			</p>
+		<% end %>
+	</div>
+	<%= yield %>	
+	<div id="bottombar">
+		<h4>Check It Out Brough</h4>
+		<p> 2015</p>
+	</div>
+	
 </body>
 </html>

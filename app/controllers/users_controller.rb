@@ -1,12 +1,18 @@
+require 'openssl'
+require 'geokit'
 class UsersController < ApplicationController
 
 	def index
 		render json: User.all 
 	end
 
+
+
 	def new
 		@user = User.new
 	end
+
+
 
 	def create
 		@user = User.new(user_params)
@@ -17,17 +23,34 @@ class UsersController < ApplicationController
 		end
 	end
 
+
+
+
+
 	def show
+		@user = User.find(params[:id])
+		@user_places = current_user.get_lists(current_user.access_token)
+		
 	end
+
+
+	def address_check
+		@user_list = current_user.get_lists(current_user.access_token)
+		@results = current_user.check_list_items(params[:address], @user_list)
+		binding.pry
+		respond_to do |format|
+			format.json {render :json => @results}
+		end
+	end
+
+
 
 	def authenticate_foursq
 		@user_auth_token = request.original_url.split('=')[1]
-		def current_user
-  			User.find_by(id: session[:current_user])
-  		end
-  		token = 'poop'
-  		binding.pry
+		User.last.foursq_user_token(@user_auth_token)
   	end
+
+
 
 
 	private

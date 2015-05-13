@@ -43,5 +43,8 @@ group :development, :test do
   gem 'spring'
   gem 'pry-rails'
   gem 'httparty'
+  gem 'geocoder'
+  gem 'geokit'
+  gem 'openssl'
 end
 

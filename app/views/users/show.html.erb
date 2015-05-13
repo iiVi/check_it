@@ -1,0 +1,28 @@
+<h3>Enter your destination address here to find which of your ToDo List places are within .35 miles ...</h2>
+
+<input type="text" id="address-input"name="Destination" placeholder = "Destination...">
+<button id="address-check-button">Check Places...</button>
+
+<h3>Here are your ToDo List places</h3>
+
+<div id="results-container">
+	<% if current_user %>
+			<p>Your FourSquare ToDo List contains the following places... <br>
+				<% @user_items_rendered = current_user.get_lists(current_user.access_token) %>
+				<% @user_items_rendered.each do |item| %>
+				<div class="user_list_item">
+					<br> <li>Name: <a href="<%= item['place_url'] %>"> <%= item['name']%> </a> </li> <br>
+						<li>Address: <%= item['address'] %> </li>
+					</li><br>
+				</div>
+				<% end %>
+			</p>
+		<% else %>
+			<p>
+				Please sign in to see your lists
+			</p>
+	<% end %>
+</div>
+
+
+

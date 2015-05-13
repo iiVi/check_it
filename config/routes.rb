@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get '/authfoursq' => 'users#authenticate_foursq'
 
+  post '/listcheck' => 'users#address_check'
+
   get 'sessions/new' => 'sessions#new'
   post 'sessions' => 'sessions#create'
   delete 'sessions' => 'sessions#destroy'
