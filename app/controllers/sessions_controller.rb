@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
 
 		if user && user.authenticate(password)
 			session[:current_user] = user.id
-			binding.pry
 			redirect_to redirect_link
 		else
 			render :new
@@ -20,7 +19,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		session[:current_user] = nil
-		redirect_to sessions_new_path
+		redirect_to 'http://localhost:3000'
 	end
 
 

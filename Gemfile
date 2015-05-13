@@ -46,5 +46,6 @@ group :development, :test do
   gem 'geocoder'
   gem 'geokit'
   gem 'openssl'
+  gem 'rails_12factor', group: :production
 end
 

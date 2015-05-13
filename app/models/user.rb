@@ -38,13 +38,15 @@ class User < ActiveRecord::Base
 		@user_todo_items_details
 	end
 
-	def check_list_items(address, list)
+	def check_list_items(address, list, time)
+		@user_distance = (time.to_i / 60.0) * 3.2
 		@closest_places = []
 		@geocoded_address = Geokit::Geocoders::GoogleGeocoder.geocode URI.unescape(address)
 		list.each do |place|
 			@geocoded_place = Geokit::Geocoders::GoogleGeocoder.geocode place['address']
-			if @geocoded_address.distance_to(@geocoded_place) < 0.35
+			if @geocoded_address.distance_to(@geocoded_place) < @user_distance
 				place['distance_from_address'] = @geocoded_address.distance_to(@geocoded_place)
+				place['geocoded_address_param'] = @geocoded_address
 				@closest_places.push(place)
 			end
 		end
