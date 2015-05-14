@@ -4,7 +4,7 @@ $(document).ready(function() {
 	$('#address-check-button').on('click', function(address) {
 		console.log('button clicked bro')
 		$.ajax({
-			url: 'http://localhost:3000/listcheck',
+			url: '/listcheck',
 			method: 'post',
 			data: {address: encodeURI($('#address-input').val()), time: encodeURI($('#minutes-input').val())},
 			dataType: 'json'

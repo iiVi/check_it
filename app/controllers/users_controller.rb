@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			redirect_to "https://foursquare.com/oauth2/authenticate?client_id=NVB2TLBGE5SWYUNIPL3NWDB1S3ICQW1IIKD0W4CBTKLFCTRE&response_type=code&redirect_uri=http://localhost:3000/authfoursq"
+			redirect_to "https://foursquare.com/oauth2/authenticate?client_id=NVB2TLBGE5SWYUNIPL3NWDB1S3ICQW1IIKD0W4CBTKLFCTRE&response_type=code&redirect_uri=http://thawing-headland-7058.herokuapp.com/authfoursq"
 		else
 			render :new
 		end

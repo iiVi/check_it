@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 		username = params[:username]
 		password = params[:password]
 		user = User.find_by(username: username)
-		redirect_link = 'http://localhost:3000/users/' + user.id.to_s
+		redirect_link = 'http://thawing-headland-7058.herokuapp.com/users/' + user.id.to_s
 
 		if user && user.authenticate(password)
 			session[:current_user] = user.id
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		session[:current_user] = nil
-		redirect_to 'http://localhost:3000'
+		redirect_to 'http://thawing-headland-7058.herokuapp.com'
 	end
 
 
